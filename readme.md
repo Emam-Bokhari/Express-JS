@@ -12,7 +12,6 @@ This is an Express-based REST API application demonstrating several common API r
 - [Routes](#routes)
 - [Error Handling](#error-handling)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
 - [License](#license)
 
 ---
