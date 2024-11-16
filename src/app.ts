@@ -1,11 +1,17 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 const app = express();
 
 // parser
 app.use(express.json())
 
+// middleware
+const logger = (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.url, req.method, req.hostname);
+    next();
+}
+
 // health
-app.get("/health", (req: Request, res: Response) => {
+app.get("/health", logger, (req: Request, res: Response) => {
     res.send("Server is running...")
 })
 

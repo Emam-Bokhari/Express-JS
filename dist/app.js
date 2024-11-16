@@ -7,8 +7,13 @@ const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 // parser
 app.use(express_1.default.json());
+// middleware
+const logger = (req, res, next) => {
+    console.log(req.url, req.method, req.hostname);
+    next();
+};
 // health
-app.get("/health", (req, res) => {
+app.get("/health", logger, (req, res) => {
     res.send("Server is running...");
 });
 // example of path paramiters
