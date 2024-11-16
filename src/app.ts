@@ -6,7 +6,7 @@ app.get("/health", (req: Request, res: Response) => {
     res.send("Server is running...")
 })
 
-// example of query params
+// example of path paramiters
 app.get("/users/:userId",(req:Request,res:Response)=>{
     const userId=req.params;
     console.log(userId);
@@ -16,5 +16,16 @@ app.get("/users/:userId",(req:Request,res:Response)=>{
         code:200,
     })
 })
+
+// example of multiple path parameters
+app.get("/products/:productId/:subProductId",(req:Request,res:Response)=>{
+    const productId=req.params;
+    console.log(productId);
+    res.json({
+        success:true,
+        code:200,
+    })
+})
+
 
 export default app;
