@@ -32,7 +32,7 @@ git clone https://github.com/Emam-Bokhari/Express-JS
 **2. Navigate into the project directory**
 
 ```bash
-cd project-name
+cd Express-JS
 ```
 
 **3. Install dependencies**
