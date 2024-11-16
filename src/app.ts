@@ -27,5 +27,14 @@ app.get("/products/:productId/:subProductId",(req:Request,res:Response)=>{
     })
 })
 
+// example of query parameters
+app.get("/orders",(req:Request,res:Response)=>{
+    console.log(req.query);
+    res.json({
+        success:true,
+        code:200,
+    })
+})
+
 
 export default app;

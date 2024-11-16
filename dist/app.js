@@ -28,4 +28,12 @@ app.get("/products/:productId/:subProductId", (req, res) => {
         code: 200,
     });
 });
+// example of query parameters
+app.get("/orders", (req, res) => {
+    console.log(req.query);
+    res.json({
+        success: true,
+        code: 200,
+    });
+});
 exports.default = app;
