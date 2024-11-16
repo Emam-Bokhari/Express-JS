@@ -7,6 +7,7 @@ This is an Express-based REST API application demonstrating several common API r
 ## Table of Contents
 
 - [Installation](#installation)
+- [Folder Structure](#folder-structure)
 - [Usage](#usage)
 - [Routes](#routes)
 - [Error Handling](#error-handling)
