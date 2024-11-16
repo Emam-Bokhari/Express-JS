@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
+// parser
+app.use(express_1.default.json());
 // health
 app.get("/health", (req, res) => {
     res.send("Server is running...");
@@ -26,6 +28,16 @@ app.get("/products/:productId/:subProductId", (req, res) => {
     res.json({
         success: true,
         code: 200,
+    });
+});
+// example of post req
+app.post("/product", (req, res) => {
+    const data = req.body;
+    console.log(data);
+    res.json({
+        message: "Success",
+        code: 200,
+        data: data,
     });
 });
 // example of query parameters

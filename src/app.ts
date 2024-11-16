@@ -1,6 +1,9 @@
 import express, { Request, Response } from "express";
 const app = express();
 
+// parser
+app.use(express.json())
+
 // health
 app.get("/health", (req: Request, res: Response) => {
     res.send("Server is running...")
@@ -24,6 +27,17 @@ app.get("/products/:productId/:subProductId",(req:Request,res:Response)=>{
     res.json({
         success:true,
         code:200,
+    })
+})
+
+// example of post req
+app.post("/product",(req:Request,res:Response)=>{
+    const data=req.body;
+    console.log(data);
+    res.json({
+        message:"Success",
+        code:200,
+        data:data,
     })
 })
 
