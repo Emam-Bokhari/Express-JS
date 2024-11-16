@@ -9,4 +9,14 @@ const app = (0, express_1.default)();
 app.get("/health", (req, res) => {
     res.send("Server is running...");
 });
+// example of query params
+app.get("/users/:userId", (req, res) => {
+    const userId = req.params;
+    console.log(userId);
+    console.log(req.params.userId);
+    res.json({
+        success: true,
+        code: 200,
+    });
+});
 exports.default = app;
