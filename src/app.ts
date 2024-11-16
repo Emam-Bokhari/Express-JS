@@ -109,13 +109,27 @@ postRouter.get("/profit", async (req: Request, res: Response, next: NextFunction
     }
 })
 
+// all route error handling
+app.use("*", (req: Request, res: Response) => {
+    res.status(404).json({
+        success: false,
+        code: 404,
+        message: "Sorry, the resource you are looking for cannot be found on this server.",
+        errors:[
+            {
+                message:`Cannot ${req.method} ${req.originalUrl} on this server`
+            }
+        ]
+    })
+})
+
 // global error handling
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
     res.status(err.status || 500).json({
         success: false,
         code: err.status || 500,
         message: err.message || "Internal Server error",
-        errors: err.errors||null
+        errors: err.errors || null
     })
 })
 

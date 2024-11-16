@@ -111,6 +111,19 @@ postRouter.get("/profit", (req, res, next) => __awaiter(void 0, void 0, void 0, 
         next(err);
     }
 }));
+// all route error handling
+app.use("*", (req, res) => {
+    res.status(404).json({
+        success: false,
+        code: 404,
+        message: "Sorry, the resource you are looking for cannot be found on this server.",
+        errors: [
+            {
+                message: `Cannot ${req.method} ${req.originalUrl} on this server`
+            }
+        ]
+    });
+});
 // global error handling
 app.use((err, req, res, next) => {
     res.status(err.status || 500).json({
