@@ -26,7 +26,7 @@ Follow these steps to get this project running locally on your machine.
 Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/project-name.git
+git clone https://github.com/Emam-Bokhari/Express-JS
 ```
 
 **2. Navigate into the project directory**
