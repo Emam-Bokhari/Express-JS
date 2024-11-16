@@ -34,7 +34,7 @@ app.get("/products/:productId/:subProductId", (req, res) => {
 app.post("/product", (req, res) => {
     const data = req.body;
     console.log(data);
-    res.json({
+    res.status(200).json({
         message: "Success",
         code: 200,
         data: data,
@@ -46,6 +46,17 @@ app.get("/orders", (req, res) => {
     res.json({
         success: true,
         code: 200,
+    });
+});
+// example of Router
+const salaryRouter = express_1.default.Router();
+app.use("/", salaryRouter);
+salaryRouter.get("/salary", (req, res) => {
+    const data = req.body;
+    res.status(200).json({
+        message: "success",
+        code: 200,
+        data: data,
     });
 });
 exports.default = app;
